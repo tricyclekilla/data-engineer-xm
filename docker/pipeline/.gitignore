@@ -1,0 +1,33 @@
+
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.venv/
+.env
+
+
+# Jupyter auto-generated checkpoints
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+
+# Secrets
+*.json
+*.pem
+*.key
+*.env
+
+# Generated data / outputs
+*.parquet
+*.csv.gz
+*.zip
+
+
+# Logs
+*.log

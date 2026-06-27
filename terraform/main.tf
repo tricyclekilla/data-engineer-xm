@@ -8,15 +8,15 @@ terraform {
 }
 
 provider "google" {
-  credentials = file("./keys/my-cred.json")
-  project     = "terraform-test-500420"
+  credentials = file(var.credentials)
+  project     = var.project
   region      = "us-central1"
 }
 
 
 resource "google_storage_bucket" "demo-bucket" {
-  name          = "terraform-test-500420-bucket"
-  location      = "US"
+  name          = var.gcs_bucket_name
+  location      = var.location
   force_destroy = true
 
   lifecycle_rule {
@@ -27,4 +27,9 @@ resource "google_storage_bucket" "demo-bucket" {
       type = "Delete"
     }
   }
+}
+
+
+resource "google_bigquery_dataset" "demo_dataset" {
+  dataset_id = var.bq_dataset_name
 }
